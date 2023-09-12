@@ -10,14 +10,14 @@ sapply(dat,class)
 dim(dat)
 
 #Q4
+dat$species <- as.factor(dat$species)
+species <- levels(dat$species)
 species.n<- dat %>%
   group_by(species) %>%
   summarise(n = n())
 species.n
 
 #Q5
-dat$species <- as.factor(dat$species)
-species <- levels(dat$species)
 dat %>% 
   count(species,specimen) %>%
   print() %>%
